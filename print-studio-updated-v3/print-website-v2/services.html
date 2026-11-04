@@ -34,6 +34,83 @@
           <span class="category-illustration picture-illustration" aria-hidden="true"><span class="picture-print picture-print--back"><span class="photo-scene photo-scene--back"></span></span><span class="picture-print picture-print--front"><span class="photo-scene photo-scene--front"><i></i></span></span></span>
         </button>
       </div>
+
+      <section class="paper-order" id="paperOrder" aria-labelledby="paperOrderTitle" hidden>
+        <div class="paper-order-header">
+          <button class="paper-back-link" id="paperCancel" type="button">← ALL SERVICES</button>
+          <p class="paper-step-count" id="paperStepCount">STEP 1 OF 4</p>
+          <h1 id="paperOrderTitle" tabindex="-1">Paper printing</h1>
+          <div class="paper-progress" aria-hidden="true"><span id="paperProgress"></span></div>
+        </div>
+
+        <form class="paper-form" id="paperOrderForm" novalidate>
+          <div class="paper-step" data-paper-step="0">
+            <fieldset>
+              <legend>Choose a paper size</legend>
+              <div class="paper-choice-list">
+                <label class="paper-choice">
+                  <input type="radio" name="paperSize" value="A4 (210 × 297 mm)">
+                  <span><strong>A4</strong><small>210 × 297 mm</small></span>
+                </label>
+                <label class="paper-choice">
+                  <input type="radio" name="paperSize" value="Short bond (8.5 × 11 in)">
+                  <span><strong>Short bond</strong><small>8.5 × 11 in</small></span>
+                </label>
+                <label class="paper-choice">
+                  <input type="radio" name="paperSize" value="Long bond (8.5 × 13 in)">
+                  <span><strong>Long bond</strong><small>8.5 × 13 in</small></span>
+                </label>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="paper-step" data-paper-step="1" hidden>
+            <fieldset>
+              <legend>Choose print color</legend>
+              <div class="paper-choice-list paper-choice-list--two">
+                <label class="paper-choice"><input type="radio" name="printColor" value="Black and white"><span><strong>Black and white</strong></span></label>
+                <label class="paper-choice"><input type="radio" name="printColor" value="Color"><span><strong>Color</strong></span></label>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Choose print sides</legend>
+              <div class="paper-choice-list paper-choice-list--two">
+                <label class="paper-choice"><input type="radio" name="printSides" value="Single-sided"><span><strong>Single-sided</strong></span></label>
+                <label class="paper-choice"><input type="radio" name="printSides" value="Double-sided"><span><strong>Double-sided</strong></span></label>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="paper-step" data-paper-step="2" hidden>
+            <label class="paper-copies" for="paperCopies">Number of copies
+              <input id="paperCopies" name="copies" type="number" min="1" step="1" value="1" required>
+            </label>
+            <label class="paper-file" for="paperFile">Choose a PDF file
+              <input id="paperFile" name="file" type="file" accept="application/pdf,.pdf" required>
+            </label>
+            <p class="paper-file-status" id="paperFileStatus" aria-live="polite">PDF files only.</p>
+          </div>
+
+          <div class="paper-step" data-paper-step="3" hidden>
+            <h2>Review your choices</h2>
+            <dl class="paper-summary">
+              <div><dt>Size</dt><dd id="summarySize"></dd></div>
+              <div><dt>Color</dt><dd id="summaryColor"></dd></div>
+              <div><dt>Sides</dt><dd id="summarySides"></dd></div>
+              <div><dt>Copies</dt><dd id="summaryCopies"></dd></div>
+              <div><dt>File</dt><dd id="summaryFile"></dd></div>
+            </dl>
+            <p class="paper-notice">Pricing and online print requests are not connected yet.</p>
+            <button class="paper-submit" type="button" disabled>Request printing</button>
+          </div>
+
+          <p class="paper-error" id="paperError" role="alert" hidden></p>
+          <div class="paper-navigation">
+            <button class="paper-previous" id="paperPrevious" type="button">Back</button>
+            <button class="paper-next" id="paperNext" type="button">Continue</button>
+          </div>
+        </form>
+      </section>
     </main>
 
     <footer class="site-footer">
