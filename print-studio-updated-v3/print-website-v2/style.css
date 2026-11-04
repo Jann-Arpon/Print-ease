@@ -111,8 +111,30 @@ button:focus-visible {
 }
 
 .home-main--full {
+  position: relative;
   display: flex;
   flex: 1;
+}
+
+.home-scroll-hint {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: #000;
+  font-size: 11px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.home-scroll-hint:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .print-portal--full {
@@ -213,6 +235,38 @@ button:focus-visible {
 
 .site-footer span:last-child {
   display: none;
+}
+
+.merchandise-section {
+  padding: 56px 24px 64px;
+  border-top: 1px solid #000;
+}
+
+.merchandise-content {
+  width: min(100%, 900px);
+  margin: 0 auto;
+}
+
+.merchandise-section h2 {
+  margin: 0 0 24px;
+  font-size: 30px;
+}
+
+.merchandise-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px 20px;
+}
+
+.merchandise-item h3 {
+  margin: 10px 0 0;
+  font-size: 16px;
+}
+
+.merchandise-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #000;
 }
 
 .services-main--simple {
@@ -341,7 +395,17 @@ button:focus-visible {
 
   .print-portal--full {
     min-height: 390px;
+    margin-bottom: 54px;
     padding: 16px;
+  }
+
+  .home-main--full {
+    min-height: calc(100vh - 65px);
+    min-height: calc(100svh - 65px);
+  }
+
+  .home-scroll-hint {
+    bottom: 14px;
   }
 
   .landing-logo {
@@ -360,6 +424,20 @@ button:focus-visible {
 
   .print-portal__bottom {
     align-items: center;
+  }
+
+  .merchandise-section {
+    padding: 36px 16px 44px;
+  }
+
+  .merchandise-section h2 {
+    margin-bottom: 18px;
+    font-size: 24px;
+  }
+
+  .merchandise-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
   }
 
   .services-main--simple {
