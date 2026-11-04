@@ -63,6 +63,25 @@ button:focus-visible {
   text-decoration: none;
 }
 
+.home-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.contact-link {
+  padding: 8px 12px;
+  border: 1px solid #000;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  color: #fff;
+  background: #000;
+}
+
 .staff-login-link {
   display: block;
   width: 36px;
@@ -468,8 +487,15 @@ button:focus-visible {
 }
 
 .paper-file-status,
-.paper-notice {
+.paper-notice,
+.paper-price-estimate {
   font-size: 13px;
+}
+
+.paper-price-estimate {
+  padding: 12px;
+  border: 1px solid #000;
+  font-weight: bold;
 }
 
 .paper-summary {
@@ -525,8 +551,18 @@ button:focus-visible {
   background: #000;
 }
 
+.paper-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
 .paper-submit {
   width: 100%;
+  min-width: 0;
+  min-height: 50px;
+  padding: 10px 12px;
+  border: 1px solid #000;
   color: #fff;
   background: #000;
   opacity: .5;
@@ -592,10 +628,62 @@ button:focus-visible {
   margin-top: 18px;
 }
 
+.contact-main {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 36px 24px;
+  text-align: center;
+}
+
+.contact-content {
+  width: min(100%, 560px);
+}
+
+.contact-logo {
+  display: block;
+  width: min(78vw, 360px);
+  max-height: 42vh;
+  margin: 0 auto 24px;
+  object-fit: contain;
+}
+
+.contact-content h1 {
+  margin: 0 0 24px;
+  font-size: 32px;
+}
+
+.contact-address-label {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.contact-address {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.contact-home-link {
+  display: inline-block;
+  margin-top: 26px;
+}
+
 @media (max-width: 600px) {
   .site-header,
   .site-footer {
     padding: 14px;
+  }
+
+  .home-header-brand {
+    gap: 8px;
+  }
+
+  .contact-link {
+    padding: 7px 8px;
+    font-size: 11px;
   }
 
   .credit-rule,
@@ -659,6 +747,25 @@ button:focus-visible {
     padding: 16px 14px;
   }
 
+  .contact-main {
+    padding: 24px 16px;
+  }
+
+  .contact-logo {
+    width: min(78vw, 320px);
+    max-height: 38vh;
+    margin-bottom: 18px;
+  }
+
+  .contact-content h1 {
+    margin-bottom: 18px;
+    font-size: 28px;
+  }
+
+  .contact-address {
+    font-size: 16px;
+  }
+
   .paper-order {
     width: 100%;
     padding: 20px 0;
@@ -687,6 +794,16 @@ button:focus-visible {
 
   .paper-navigation {
     gap: 10px;
+  }
+
+  .paper-actions {
+    gap: 8px;
+  }
+
+  .paper-submit {
+    padding-right: 6px;
+    padding-left: 6px;
+    font-size: 13px;
   }
 
   .paper-navigation button {

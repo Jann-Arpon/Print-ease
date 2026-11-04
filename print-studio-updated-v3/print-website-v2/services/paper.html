@@ -6,6 +6,7 @@
   <meta name="description" content="Choose options for paper printing at ALJ Print Services.">
   <title>Paper Printing | ALJ Print Services</title>
   <link rel="stylesheet" href="../style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" defer></script>
   <script src="../script.js" defer></script>
 </head>
 <body class="page-services page-paper">
@@ -35,8 +36,8 @@
             <fieldset>
               <legend>Choose print color</legend>
               <div class="paper-choice-list paper-choice-list--two">
-                <label class="paper-choice"><input type="radio" name="printColor" value="Black and white"><span><strong>Black and white</strong></span></label>
-                <label class="paper-choice"><input type="radio" name="printColor" value="Color"><span><strong>Color</strong></span></label>
+                <label class="paper-choice"><input type="radio" name="printColor" value="Black and white"><span><strong>Black and white</strong><small>₱2 per page on normal paper</small></span></label>
+                <label class="paper-choice"><input type="radio" name="printColor" value="Color"><span><strong>Color</strong><small>Price not confirmed</small></span></label>
               </div>
             </fieldset>
             <fieldset>
@@ -55,7 +56,8 @@
             <label class="paper-file" for="paperFile">Choose a PDF file
               <input id="paperFile" name="file" type="file" accept="application/pdf,.pdf" required>
             </label>
-            <p class="paper-file-status" id="paperFileStatus" aria-live="polite">PDF files only.</p>
+            <p class="paper-file-status" id="paperFileStatus" aria-live="polite">PDF files only. Page count is read in your browser.</p>
+            <p class="paper-price-estimate" id="paperPriceEstimate" aria-live="polite" hidden></p>
           </div>
 
           <div class="paper-step" data-paper-step="3" hidden>
@@ -66,9 +68,14 @@
               <div><dt>Sides</dt><dd id="summarySides"></dd></div>
               <div><dt>Copies</dt><dd id="summaryCopies"></dd></div>
               <div><dt>File</dt><dd id="summaryFile"></dd></div>
+              <div><dt>PDF pages</dt><dd id="summaryPages"></dd></div>
+              <div><dt>Estimated price</dt><dd id="summaryPrice"></dd></div>
             </dl>
-            <p class="paper-notice">Pricing and online print requests are not connected yet.</p>
-            <button class="paper-submit" type="button" disabled>Request printing</button>
+            <p class="paper-notice">Black-and-white estimate uses ₱2 per page. Color pricing and online print requests are not available yet.</p>
+            <div class="paper-actions">
+              <button class="paper-submit" type="button" disabled>Print Now</button>
+              <button class="paper-submit" type="button" disabled>Add To Cart</button>
+            </div>
           </div>
 
           <p class="paper-error" id="paperError" role="alert" hidden></p>
