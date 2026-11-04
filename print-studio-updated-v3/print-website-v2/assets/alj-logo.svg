@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 720" role="img" aria-labelledby="title">
+  <title id="title">ALJ Copy Print and General Merchandise</title>
+  <g font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-style="italic">
+    <text x="75" y="420" fill="#1479e8" font-size="470">A</text>
+    <text x="300" y="420" fill="#f49a00" font-size="480">L</text>
+    <text x="300" y="555" fill="#1479e8" font-size="385">J</text>
+  </g>
+  <g fill="#111" font-family="Arial, Helvetica, sans-serif">
+    <text x="96" y="632" font-size="72">COPY PRINT</text>
+    <text x="98" y="680" font-size="31">&amp; GENERAL MERCHANDISE</text>
+  </g>
+</svg>
