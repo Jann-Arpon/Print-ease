@@ -126,10 +126,8 @@ if (paperOrder) {
   };
 
   paperBackLink.addEventListener('click', event => {
-    if (currentPaperStep === 0) {
-      event.preventDefault();
-      leavePaper();
-    }
+    event.preventDefault();
+    leavePaper();
   });
 
   paperPrevious.addEventListener('click', () => {
