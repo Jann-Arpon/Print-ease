@@ -119,7 +119,7 @@ if (paperOrder) {
 
   paperPrevious.addEventListener('click', () => {
     if (currentPaperStep === 0) {
-      window.location.href = 'services.html';
+      window.location.href = document.querySelector('.paper-back-link').href;
       return;
     }
     showPaperStep(currentPaperStep - 1);
