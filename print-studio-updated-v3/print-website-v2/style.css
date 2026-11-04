@@ -126,6 +126,13 @@ button:focus-visible {
   font-size: 13px;
 }
 
+.print-portal__bottom {
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+}
+
 .print-portal__grain,
 .print-portal__ghost {
   display: none;
@@ -157,7 +164,20 @@ button:focus-visible {
 .portal-button {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  min-width: 200px;
+  min-height: 56px;
   gap: 10px;
+  padding: 8px 10px 8px 18px;
+  border: 1px solid #000;
+  color: #fff;
+  background: #000;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.print-portal:hover .portal-button {
+  background: #333;
 }
 
 .portal-button__icon {
@@ -270,7 +290,11 @@ button:focus-visible {
   }
 
   .portal-caption {
-    max-width: 150px;
+    max-width: none;
+  }
+
+  .print-portal__bottom {
+    align-items: center;
   }
 
   .services-main--simple {
