@@ -15,14 +15,9 @@
 
     <main class="staff-main">
       <section class="staff-content">
-        <h1>Staff login</h1>
-        <p>Sign in to continue to the admin panel.</p>
         <form class="staff-form" id="staffLoginForm">
-          <label for="staffUsername">Username</label>
-          <input id="staffUsername" name="username" type="text" autocomplete="username" required>
-
-          <label for="staffPassword">Password</label>
-          <input id="staffPassword" name="password" type="password" autocomplete="current-password" required>
+          <input id="staffUsername" name="username" type="text" placeholder="Username" aria-label="Username" autocomplete="username" required>
+          <input id="staffPassword" name="password" type="password" placeholder="Password" aria-label="Password" autocomplete="current-password" required>
 
           <p class="login-error" id="loginError" role="alert" hidden>Incorrect username or password.</p>
           <button class="staff-submit" type="submit">Log in</button>

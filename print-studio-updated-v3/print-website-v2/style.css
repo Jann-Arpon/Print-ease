@@ -64,15 +64,21 @@ button:focus-visible {
 }
 
 .staff-login-link {
-  padding: 7px 10px;
-  border: 1px solid #000;
-  font-size: 12px;
-  text-decoration: none;
+  display: block;
+  width: 36px;
+  height: 36px;
+  font-size: 0;
+  opacity: 0;
 }
 
-.staff-login-link:hover {
-  color: #fff;
-  background: #000;
+.staff-login-link:focus-visible {
+  width: auto;
+  height: auto;
+  padding: 7px 10px;
+  border: 1px solid #000;
+  background: #fff;
+  font-size: 12px;
+  opacity: 1;
 }
 
 .logo-slot {
@@ -281,27 +287,16 @@ button:focus-visible {
   width: min(100%, 380px);
 }
 
-.staff-content h1 {
-  margin: 0 0 8px;
-  font-size: 32px;
-}
-
-.staff-content p {
-  line-height: 1.5;
-}
-
-.staff-form label {
-  display: block;
-  margin-top: 18px;
-  font-weight: bold;
-}
-
 .staff-form input {
   width: 100%;
   min-height: 46px;
   margin-top: 7px;
   padding: 10px;
   border: 1px solid #000;
+}
+
+.staff-form input + input {
+  margin-top: 12px;
 }
 
 .staff-submit {
