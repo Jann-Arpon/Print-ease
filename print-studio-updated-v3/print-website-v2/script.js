@@ -70,7 +70,15 @@ if (paperOrder) {
   const paperForm = document.querySelector('#paperOrderForm');
   const paperFile = document.querySelector('#paperFile');
   const paperFileStatus = document.querySelector('#paperFileStatus');
+  const paperBackLink = document.querySelector('.paper-back-link');
   let currentPaperStep = 0;
+
+  const leavePaper = () => {
+    const confirmed = window.confirm('Are you sure you want to return to the services page? Your changes will not be saved.');
+    if (confirmed) {
+      window.location.href = paperBackLink.href;
+    }
+  };
 
   const showPaperStep = step => {
     currentPaperStep = step;
@@ -117,9 +125,16 @@ if (paperOrder) {
     document.querySelector('#summaryFile').textContent = paperFile.files[0].name;
   };
 
+  paperBackLink.addEventListener('click', event => {
+    if (currentPaperStep === 0) {
+      event.preventDefault();
+      leavePaper();
+    }
+  });
+
   paperPrevious.addEventListener('click', () => {
     if (currentPaperStep === 0) {
-      window.location.href = document.querySelector('.paper-back-link').href;
+      leavePaper();
       return;
     }
     showPaperStep(currentPaperStep - 1);
