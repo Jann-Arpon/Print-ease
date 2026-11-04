@@ -13,104 +13,51 @@
     <main class="services-main services-main--simple">
       <a class="back-home back-home--top" href="index.html">← <span>BACK TO HOME</span></a>
 
+      <label class="service-search-label" for="serviceSearch">Search services</label>
+      <input class="service-search" id="serviceSearch" type="search" placeholder="Search paper, mugs, shirts..." autocomplete="off">
+      <p class="service-search-empty" id="serviceSearchEmpty" hidden>No services match your search.</p>
+
       <div class="category-list category-list--simple" id="categoryList">
-        <button class="category-card category-card--paper reveal" type="button" aria-label="Paper printing category">
+        <a class="category-card category-card--paper reveal" href="services/paper.html" aria-label="Paper printing category" data-search="paper printing documents photocopy">
           <span class="category-title">PAPER<span class="category-period">.</span></span>
           <span class="category-illustration paper-illustration" aria-hidden="true"><span class="paper-stack paper-stack--back"></span><span class="paper-stack paper-stack--front"><i></i><i></i><i></i><b>INK.</b></span></span>
-        </button>
+        </a>
 
-        <button class="category-card category-card--mug reveal" type="button" aria-label="Mug printing category">
+        <a class="category-card category-card--mug reveal" href="services/mug.html" aria-label="Mug printing category" data-search="mug cup cups">
           <span class="category-title">MUG<span class="category-period">.</span></span>
           <span class="category-illustration mug-illustration" aria-hidden="true"><span class="mug-handle"></span><span class="mug-body"><span>GOOD<br>IDEAS.</span></span><span class="mug-saucer"></span></span>
-        </button>
+        </a>
 
-        <button class="category-card category-card--tarp reveal" type="button" aria-label="Tarp printing category">
+        <a class="category-card category-card--tarp reveal" href="services/tarp.html" aria-label="Tarp printing category" data-search="tarp tarpaulin banner banners">
           <span class="category-title">TARP<span class="category-period">.</span></span>
           <span class="category-illustration tarp-illustration" aria-hidden="true"><span class="tarp-banner"><span class="tarp-pin tarp-pin--a"></span><span class="tarp-pin tarp-pin--b"></span><strong>BIG<br>IDEAS!</strong><span class="tarp-pin tarp-pin--c"></span><span class="tarp-pin tarp-pin--d"></span></span></span>
-        </button>
+        </a>
 
-        <button class="category-card category-card--picture reveal" type="button" aria-label="Picture printing category">
+        <a class="category-card category-card--picture reveal" href="services/picture.html" aria-label="Picture printing category" data-search="picture photo photo print prints">
           <span class="category-title">PICTURE<span class="category-period">.</span></span>
           <span class="category-illustration picture-illustration" aria-hidden="true"><span class="picture-print picture-print--back"><span class="photo-scene photo-scene--back"></span></span><span class="picture-print picture-print--front"><span class="photo-scene photo-scene--front"><i></i></span></span></span>
-        </button>
+        </a>
+
+        <a class="category-card category-card--text reveal" href="services/tshirts.html" aria-label="T-shirt printing category" data-search="t-shirt t-shirts tshirt tshirts shirt shirts">
+          <span class="category-title">T-SHIRTS<span class="category-period">.</span></span>
+        </a>
+
+        <a class="category-card category-card--text reveal" href="services/stickers.html" aria-label="Sticker printing category" data-search="sticker stickers decal decals">
+          <span class="category-title">STICKERS<span class="category-period">.</span></span>
+        </a>
+
+        <a class="category-card category-card--text reveal" href="services/flyers.html" aria-label="Flyer printing category" data-search="flyer flyers leaflet leaflets">
+          <span class="category-title">FLYERS<span class="category-period">.</span></span>
+        </a>
+
+        <a class="category-card category-card--text reveal" href="services/brochures.html" aria-label="Brochure printing category" data-search="brochure brochures pamphlet pamphlets">
+          <span class="category-title">BROCHURES<span class="category-period">.</span></span>
+        </a>
+
+        <a class="category-card category-card--text reveal" href="services/postcards.html" aria-label="Postcard printing category" data-search="postcard postcards post card cards">
+          <span class="category-title">POSTCARDS<span class="category-period">.</span></span>
+        </a>
       </div>
-
-      <section class="paper-order" id="paperOrder" aria-labelledby="paperOrderTitle" hidden>
-        <div class="paper-order-header">
-          <button class="paper-back-link" id="paperCancel" type="button">← ALL SERVICES</button>
-          <p class="paper-step-count" id="paperStepCount">STEP 1 OF 4</p>
-          <h1 id="paperOrderTitle" tabindex="-1">Paper printing</h1>
-          <div class="paper-progress" aria-hidden="true"><span id="paperProgress"></span></div>
-        </div>
-
-        <form class="paper-form" id="paperOrderForm" novalidate>
-          <div class="paper-step" data-paper-step="0">
-            <fieldset>
-              <legend>Choose a paper size</legend>
-              <div class="paper-choice-list">
-                <label class="paper-choice">
-                  <input type="radio" name="paperSize" value="A4 (210 × 297 mm)">
-                  <span><strong>A4</strong><small>210 × 297 mm</small></span>
-                </label>
-                <label class="paper-choice">
-                  <input type="radio" name="paperSize" value="Short bond (8.5 × 11 in)">
-                  <span><strong>Short bond</strong><small>8.5 × 11 in</small></span>
-                </label>
-                <label class="paper-choice">
-                  <input type="radio" name="paperSize" value="Long bond (8.5 × 13 in)">
-                  <span><strong>Long bond</strong><small>8.5 × 13 in</small></span>
-                </label>
-              </div>
-            </fieldset>
-          </div>
-
-          <div class="paper-step" data-paper-step="1" hidden>
-            <fieldset>
-              <legend>Choose print color</legend>
-              <div class="paper-choice-list paper-choice-list--two">
-                <label class="paper-choice"><input type="radio" name="printColor" value="Black and white"><span><strong>Black and white</strong></span></label>
-                <label class="paper-choice"><input type="radio" name="printColor" value="Color"><span><strong>Color</strong></span></label>
-              </div>
-            </fieldset>
-            <fieldset>
-              <legend>Choose print sides</legend>
-              <div class="paper-choice-list paper-choice-list--two">
-                <label class="paper-choice"><input type="radio" name="printSides" value="Single-sided"><span><strong>Single-sided</strong></span></label>
-                <label class="paper-choice"><input type="radio" name="printSides" value="Double-sided"><span><strong>Double-sided</strong></span></label>
-              </div>
-            </fieldset>
-          </div>
-
-          <div class="paper-step" data-paper-step="2" hidden>
-            <label class="paper-copies" for="paperCopies">Number of copies
-              <input id="paperCopies" name="copies" type="number" min="1" step="1" value="1" required>
-            </label>
-            <label class="paper-file" for="paperFile">Choose a PDF file
-              <input id="paperFile" name="file" type="file" accept="application/pdf,.pdf" required>
-            </label>
-            <p class="paper-file-status" id="paperFileStatus" aria-live="polite">PDF files only.</p>
-          </div>
-
-          <div class="paper-step" data-paper-step="3" hidden>
-            <h2>Review your choices</h2>
-            <dl class="paper-summary">
-              <div><dt>Size</dt><dd id="summarySize"></dd></div>
-              <div><dt>Color</dt><dd id="summaryColor"></dd></div>
-              <div><dt>Sides</dt><dd id="summarySides"></dd></div>
-              <div><dt>Copies</dt><dd id="summaryCopies"></dd></div>
-              <div><dt>File</dt><dd id="summaryFile"></dd></div>
-            </dl>
-            <p class="paper-notice">Pricing and online print requests are not connected yet.</p>
-            <button class="paper-submit" type="button" disabled>Request printing</button>
-          </div>
-
-          <p class="paper-error" id="paperError" role="alert" hidden></p>
-          <div class="paper-navigation">
-            <button class="paper-previous" id="paperPrevious" type="button">Back</button>
-            <button class="paper-next" id="paperNext" type="button">Continue</button>
-          </div>
-        </form>
-      </section>
     </main>
 
     <footer class="site-footer">

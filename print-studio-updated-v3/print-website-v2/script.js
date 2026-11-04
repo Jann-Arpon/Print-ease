@@ -40,11 +40,29 @@ if (staffLoginForm) {
   });
 }
 
-const paperCard = document.querySelector('.category-card--paper');
-const categoryList = document.querySelector('#categoryList');
 const paperOrder = document.querySelector('#paperOrder');
 
-if (paperCard && categoryList && paperOrder) {
+const serviceSearch = document.querySelector('#serviceSearch');
+
+if (serviceSearch) {
+  const serviceCards = [...document.querySelectorAll('.category-card[data-search]')];
+  const emptyMessage = document.querySelector('#serviceSearchEmpty');
+
+  serviceSearch.addEventListener('input', () => {
+    const query = serviceSearch.value.trim().toLowerCase();
+    let visibleCount = 0;
+
+    serviceCards.forEach(card => {
+      const matches = card.dataset.search.includes(query) || card.textContent.toLowerCase().includes(query);
+      card.hidden = !matches;
+      visibleCount += matches ? 1 : 0;
+    });
+
+    emptyMessage.hidden = visibleCount > 0;
+  });
+}
+
+if (paperOrder) {
   const paperSteps = [...paperOrder.querySelectorAll('[data-paper-step]')];
   const paperPrevious = document.querySelector('#paperPrevious');
   const paperNext = document.querySelector('#paperNext');
@@ -99,22 +117,9 @@ if (paperCard && categoryList && paperOrder) {
     document.querySelector('#summaryFile').textContent = paperFile.files[0].name;
   };
 
-  paperCard.addEventListener('click', () => {
-    categoryList.hidden = true;
-    paperOrder.hidden = false;
-    showPaperStep(0);
-    document.querySelector('#paperOrderTitle').focus();
-  });
-
-  document.querySelector('#paperCancel').addEventListener('click', () => {
-    paperOrder.hidden = true;
-    categoryList.hidden = false;
-  });
-
   paperPrevious.addEventListener('click', () => {
     if (currentPaperStep === 0) {
-      paperOrder.hidden = true;
-      categoryList.hidden = false;
+      window.location.href = 'services.html';
       return;
     }
     showPaperStep(currentPaperStep - 1);
