@@ -63,6 +63,18 @@ button:focus-visible {
   text-decoration: none;
 }
 
+.staff-login-link {
+  padding: 7px 10px;
+  border: 1px solid #000;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.staff-login-link:hover {
+  color: #fff;
+  background: #000;
+}
+
 .logo-slot {
   width: 48px;
   height: 48px;
@@ -256,6 +268,64 @@ button:focus-visible {
   color: #000;
   font-weight: bold;
   text-decoration: none;
+}
+
+.staff-main {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 32px 24px;
+}
+
+.staff-content {
+  width: min(100%, 380px);
+}
+
+.staff-content h1 {
+  margin: 0 0 8px;
+  font-size: 32px;
+}
+
+.staff-content p {
+  line-height: 1.5;
+}
+
+.staff-form label {
+  display: block;
+  margin-top: 18px;
+  font-weight: bold;
+}
+
+.staff-form input {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 7px;
+  padding: 10px;
+  border: 1px solid #000;
+}
+
+.staff-submit {
+  width: 100%;
+  min-height: 52px;
+  margin-top: 22px;
+  border: 1px solid #000;
+  color: #fff;
+  background: #000;
+  font-weight: bold;
+}
+
+.staff-submit:hover {
+  background: #333;
+}
+
+.login-error {
+  padding: 10px;
+  border: 1px solid #000;
+}
+
+.staff-home-link {
+  display: inline-block;
+  margin-top: 18px;
 }
 
 @media (max-width: 600px) {

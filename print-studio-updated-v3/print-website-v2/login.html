@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staff Login | ALJ Print Services</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="site-wrap">
+    <header class="site-header">
+      <a class="brand-lockup" href="index.html">ALJ PRINT SERVICES</a>
+    </header>
+
+    <main class="staff-main">
+      <section class="staff-content">
+        <h1>Staff login</h1>
+        <p>Sign in to continue to the admin panel.</p>
+        <form class="staff-form" id="staffLoginForm">
+          <label for="staffUsername">Username</label>
+          <input id="staffUsername" name="username" type="text" autocomplete="username" required>
+
+          <label for="staffPassword">Password</label>
+          <input id="staffPassword" name="password" type="password" autocomplete="current-password" required>
+
+          <p class="login-error" id="loginError" role="alert" hidden>Incorrect username or password.</p>
+          <button class="staff-submit" type="submit">Log in</button>
+        </form>
+        <a class="staff-home-link" href="index.html">Back to home</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© <span data-year></span> ALJ PRINT SERVICES</span>
+    </footer>
+  </div>
+</body>
+</html>
