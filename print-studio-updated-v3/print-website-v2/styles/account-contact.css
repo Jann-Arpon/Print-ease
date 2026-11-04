@@ -1,0 +1,110 @@
+.staff-main {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 32px 24px;
+}
+
+.staff-content {
+  width: min(100%, 380px);
+}
+
+.staff-form input {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 7px;
+  padding: 10px;
+  border: 1px solid #000;
+}
+
+.staff-form input + input {
+  margin-top: 12px;
+}
+
+.staff-submit {
+  width: 100%;
+  min-height: 52px;
+  margin-top: 22px;
+  border: 1px solid #000;
+  color: #fff;
+  background: #000;
+  font-weight: bold;
+}
+
+.staff-submit:hover {
+  background: #333;
+}
+
+.login-error {
+  padding: 10px;
+  border: 1px solid #000;
+}
+
+.staff-home-link {
+  display: inline-block;
+  margin-top: 18px;
+}
+
+.contact-main {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 36px 24px;
+  text-align: center;
+}
+
+.contact-content {
+  width: min(100%, 560px);
+}
+
+.contact-logo {
+  display: block;
+  width: min(78vw, 360px);
+  max-height: 42vh;
+  margin: 0 auto 24px;
+  object-fit: contain;
+}
+
+.contact-content h1 {
+  margin: 0 0 24px;
+  font-size: 32px;
+}
+
+.contact-address-label {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.contact-address {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.contact-home-link {
+  display: inline-block;
+  margin-top: 26px;
+}
+
+@media (max-width: 600px) {
+  .contact-main {
+    padding: 24px 16px;
+  }
+
+  .contact-logo {
+    width: min(78vw, 320px);
+    max-height: 38vh;
+    margin-bottom: 18px;
+  }
+
+  .contact-content h1 {
+    margin-bottom: 18px;
+    font-size: 28px;
+  }
+
+  .contact-address {
+    font-size: 16px;
+  }
+}

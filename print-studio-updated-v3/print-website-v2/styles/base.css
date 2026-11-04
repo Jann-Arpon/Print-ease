@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #000;
+  background: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+a {
+  color: #000;
+}
+
+button {
+  color: #000;
+  background: #fff;
+  cursor: pointer;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 3px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.site-wrap {
+  width: min(100%, 1100px);
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-header,
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 24px;
+}
+
+.site-header {
+  border-bottom: 1px solid #000;
+}
+
+.site-footer {
+  border-top: 1px solid #000;
+  font-size: 12px;
+}
+
+.site-footer span:last-child {
+  display: none;
+}
+
+.brand-lockup,
+.credit-lockup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-lockup {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.logo-slot {
+  width: 48px;
+  height: 48px;
+  border: 1px solid #000;
+}
+
+.logo-slot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.credit-rule {
+  width: 28px;
+  height: 1px;
+  background: #000;
+}
+
+.credit-text {
+  max-width: 220px;
+  font-size: 12px;
+}
+
+.login-button {
+  padding: 9px 14px;
+  border: 1px solid #000;
+}
+
+.services-main--simple {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px 24px;
+}
+
+.back-home {
+  margin-bottom: 16px;
+  text-decoration: none;
+}
+
+.back-home:hover,
+.footer-back-link:hover {
+  text-decoration: underline;
+}
+
+.footer-back-link {
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .site-header,
+  .site-footer {
+    padding: 14px;
+  }
+
+  .credit-rule,
+  .site-header .header-note {
+    display: none;
+  }
+
+  .credit-text {
+    max-width: 130px;
+    font-size: 10px;
+  }
+
+  .services-main--simple {
+    padding: 16px 14px;
+  }
+}
