@@ -3,16 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Order printed sticker sheets on A4 sticker paper at ALJ Print Services.">
   <title>Sticker Printing | ALJ Print Services</title>
   <link rel="stylesheet" href="../styles/base.css">
+  <link rel="stylesheet" href="../styles/stickers.css">
   <script src="../js/common.js" defer></script>
+  <script src="../js/stickers-order.js" defer></script>
 </head>
-<body>
+<body class="page-services page-stickers">
   <div class="site-wrap">
     <main class="services-main services-main--simple">
-      <a class="back-home" href="../services.html">← ALL SERVICES</a>
-      <h1>Sticker printing</h1>
-      <p>More options for sticker printing will be added here.</p>
+      <section class="sticker-order" id="stickerOrder" aria-labelledby="stickerOrderTitle">
+        <div class="sticker-order-header">
+          <a class="sticker-back-link" href="../services.html">← ALL SERVICES</a>
+          <p class="sticker-step-count" id="stickerStepCount">STEP 1 OF 3</p>
+          <h1 id="stickerOrderTitle" tabindex="-1">Sticker printing</h1>
+          <div class="sticker-progress" aria-hidden="true"><span id="stickerProgress"></span></div>
+        </div>
+
+        <form class="sticker-form" id="stickerOrderForm" novalidate>
+          <div class="sticker-step" data-sticker-step="0">
+            <section class="sticker-sheet-info" aria-labelledby="stickerSheetTitle">
+              <h2 id="stickerSheetTitle">A4 sticker sheets</h2>
+              <p>Sticker paper is available in A4 only (210 × 297 mm).</p>
+            </section>
+
+            <label class="sticker-copies" for="stickerCopies">Number of sheets
+              <input id="stickerCopies" name="copies" type="number" min="1" step="1" value="1" required>
+            </label>
+
+            <p class="sticker-cut-notice"><strong>Please note:</strong> We print your design on full sticker sheets. Individual stickers are not cut out.</p>
+
+            <section class="sticker-examples" aria-labelledby="stickerExamplesTitle">
+              <h2 id="stickerExamplesTitle">Example prints</h2>
+              <div class="sticker-examples-grid">
+                <div class="sticker-example-placeholder" aria-hidden="true"></div>
+                <div class="sticker-example-placeholder" aria-hidden="true"></div>
+              </div>
+            </section>
+          </div>
+
+          <div class="sticker-step" data-sticker-step="1" hidden>
+            <label class="sticker-file" for="stickerFile">Upload your A4 design
+              <input id="stickerFile" name="file" type="file" accept="application/pdf,image/png,image/jpeg,.pdf,.png,.jpg,.jpeg" required>
+            </label>
+            <p class="sticker-file-status" id="stickerFileStatus" aria-live="polite">PDF, PNG, or JPG/JPEG. For best results, prepare your artwork to fit an A4 page. Your file stays on this device.</p>
+
+            <section class="sticker-examples" aria-labelledby="stickerUploadExamplesTitle">
+              <h2 id="stickerUploadExamplesTitle">Example prints</h2>
+              <div class="sticker-examples-grid">
+                <div class="sticker-example-placeholder" aria-hidden="true"></div>
+                <div class="sticker-example-placeholder" aria-hidden="true"></div>
+              </div>
+            </section>
+          </div>
+
+          <div class="sticker-step" data-sticker-step="2" hidden>
+            <h2>Review your order</h2>
+            <dl class="sticker-summary">
+              <div><dt>Product</dt><dd>A4 sticker sheet (210 × 297 mm)</dd></div>
+              <div><dt>Quantity</dt><dd id="summaryCopies"></dd></div>
+              <div><dt>Design file</dt><dd id="summaryFile"></dd></div>
+              <div><dt>Format</dt><dd id="summaryFormat"></dd></div>
+              <div><dt>File size</dt><dd id="summaryFileSize"></dd></div>
+              <div><dt>Cutting</dt><dd>Full sheets; no individual cutting</dd></div>
+              <div><dt>Price</dt><dd>Not available yet</dd></div>
+            </dl>
+            <p class="sticker-notice">Sticker pricing and online checkout are not available yet.</p>
+            <div class="sticker-actions">
+              <button class="sticker-submit" type="button" disabled>Print Now</button>
+              <button class="sticker-submit" type="button" disabled>Add To Cart</button>
+            </div>
+          </div>
+
+          <p class="sticker-error" id="stickerError" role="alert" hidden></p>
+          <div class="sticker-navigation">
+            <button class="sticker-previous" id="stickerPrevious" type="button">All services</button>
+            <button class="sticker-next" id="stickerNext" type="button">Continue</button>
+          </div>
+        </form>
+      </section>
     </main>
   </div>
 </body>

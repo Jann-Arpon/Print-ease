@@ -1,0 +1,257 @@
+.sticker-order {
+  width: min(100%, 760px);
+  margin: 0 auto;
+  padding: 28px 0;
+}
+
+.sticker-order-header {
+  margin-bottom: 28px;
+}
+
+.sticker-back-link {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.sticker-back-link:hover {
+  text-decoration: underline;
+}
+
+.sticker-step-count {
+  margin: 26px 0 8px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.sticker-order-header h1,
+.sticker-step h2 {
+  margin: 0 0 18px;
+  font-size: 30px;
+}
+
+.sticker-progress {
+  height: 4px;
+  background: #ddd;
+}
+
+.sticker-progress span {
+  display: block;
+  width: 33.333%;
+  height: 100%;
+  background: #000;
+  transition: width .2s ease;
+}
+
+.sticker-sheet-info {
+  margin-bottom: 24px;
+  padding: 16px;
+  border: 1px solid #000;
+}
+
+.sticker-sheet-info h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.sticker-sheet-info p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.sticker-copies,
+.sticker-file {
+  display: block;
+  margin: 0 0 24px;
+  font-weight: bold;
+}
+
+.sticker-copies input,
+.sticker-file input {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 8px;
+  padding: 10px;
+  border: 1px solid #000;
+  background: #fff;
+}
+
+.sticker-cut-notice {
+  margin: 0;
+  padding: 14px;
+  border-left: 4px solid #000;
+  background: #f2f2f2;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.sticker-examples {
+  margin-top: 28px;
+}
+
+.sticker-examples h2 {
+  margin: 0 0 14px;
+  font-size: 20px;
+}
+
+.sticker-examples-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.sticker-example-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #000;
+}
+
+.sticker-file-status,
+.sticker-notice {
+  font-size: 13px;
+}
+
+.sticker-file-status {
+  margin: -14px 0 24px;
+}
+
+.sticker-summary {
+  margin: 0;
+  border-top: 1px solid #000;
+}
+
+.sticker-summary div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.sticker-summary dt {
+  font-weight: bold;
+}
+
+.sticker-summary dd {
+  margin: 0;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.sticker-notice {
+  margin: 22px 0;
+}
+
+.sticker-navigation,
+.sticker-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.sticker-navigation {
+  margin-top: 24px;
+}
+
+.sticker-navigation button,
+.sticker-submit {
+  min-width: 0;
+  min-height: 50px;
+  padding: 10px 18px;
+  border: 1px solid #000;
+  font-weight: bold;
+}
+
+.sticker-previous {
+  background: #fff;
+}
+
+.sticker-next {
+  color: #fff;
+  background: #000;
+}
+
+.sticker-submit {
+  width: 100%;
+  padding: 10px 12px;
+  color: #fff;
+  background: #000;
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.sticker-error {
+  padding: 10px;
+  border: 1px solid #000;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .page-stickers .services-main--simple {
+    padding: 12px;
+  }
+
+  .sticker-order {
+    width: 100%;
+    padding: 12px 0;
+  }
+
+  .sticker-form,
+  .sticker-step {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .sticker-order-header h1,
+  .sticker-step h2 {
+    font-size: 26px;
+  }
+
+  .sticker-step[data-sticker-step="1"] {
+    padding-top: 16px;
+  }
+
+  .sticker-step[data-sticker-step="1"] .sticker-file {
+    margin-bottom: 16px;
+  }
+
+  .sticker-step[data-sticker-step="1"] .sticker-file input {
+    min-height: 64px;
+    margin-top: 12px;
+    padding: 14px 12px;
+  }
+
+  .sticker-step[data-sticker-step="1"] .sticker-file-status {
+    margin: 0 0 28px;
+    line-height: 1.5;
+  }
+
+  .sticker-step[data-sticker-step="1"] .sticker-examples {
+    margin-top: 72px;
+  }
+
+  .sticker-navigation,
+  .sticker-actions {
+    gap: 8px;
+  }
+
+  .sticker-examples-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .sticker-navigation button {
+    width: 100%;
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .sticker-submit {
+    padding-right: 6px;
+    padding-left: 6px;
+    font-size: 13px;
+  }
+}
