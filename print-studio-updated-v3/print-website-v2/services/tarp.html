@@ -3,16 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Choose a custom tarpaulin size and preview its proportions at ALJ Print Services.">
   <title>Tarpaulin Printing | ALJ Print Services</title>
   <link rel="stylesheet" href="../styles/base.css">
+  <link rel="stylesheet" href="../styles/tarp.css">
   <script src="../js/common.js" defer></script>
+  <script src="../js/tarp-order.js" defer></script>
 </head>
-<body>
+<body class="page-services page-tarp">
   <div class="site-wrap">
     <main class="services-main services-main--simple">
-      <a class="back-home" href="../services.html">← ALL SERVICES</a>
-      <h1>Tarpaulin printing</h1>
-      <p>More options for tarpaulin printing will be added here.</p>
+      <section class="tarp-order" id="tarpOrder" aria-labelledby="tarpOrderTitle">
+        <header class="tarp-order-header">
+          <a class="tarp-back-link" href="../services.html">← ALL SERVICES</a>
+          <p class="tarp-step-count" id="tarpStepCount">STEP 1 OF 3</p>
+          <h1 id="tarpOrderTitle" tabindex="-1">Tarpaulin printing</h1>
+          <div class="tarp-progress" aria-hidden="true"><span id="tarpProgress"></span></div>
+        </header>
+
+        <form class="tarp-form" id="tarpOrderForm" novalidate>
+          <div class="tarp-step-layout">
+            <div class="tarp-step-content">
+              <div class="tarp-step" data-tarp-step="0">
+                <fieldset class="tarp-size-inputs">
+                  <legend>Choose your tarp size</legend>
+                  <label for="tarpWidth">Width (ft)
+                    <input id="tarpWidth" name="width" type="number" min="0.1" max="6" step="any" value="3" required>
+                  </label>
+                  <label for="tarpHeight">Height (ft)
+                    <input id="tarpHeight" name="height" type="number" min="0.1" max="6" step="any" value="3" required>
+                  </label>
+                  <p class="tarp-size-limit">Enter any size up to 6 ft on each side.</p>
+                </fieldset>
+
+                <section class="tarp-inspiration" aria-labelledby="tarpInspirationTitle">
+                  <h2 id="tarpInspirationTitle">Design inspiration</h2>
+                  <div class="tarp-inspiration-grid">
+                    <article class="tarp-inspiration-item">
+                      <div class="tarp-inspiration-placeholder" aria-hidden="true"></div>
+                      <h3>Inspiration 01</h3>
+                    </article>
+                    <article class="tarp-inspiration-item">
+                      <div class="tarp-inspiration-placeholder" aria-hidden="true"></div>
+                      <h3>Inspiration 02</h3>
+                    </article>
+                  </div>
+                </section>
+              </div>
+
+              <div class="tarp-step" data-tarp-step="1" hidden>
+                <label class="tarp-file" for="tarpFile">Upload your design
+                  <input id="tarpFile" name="file" type="file" accept="image/png,image/jpeg,.png,.jpg,.jpeg" required>
+                </label>
+                <p class="tarp-file-status" id="tarpFileStatus" aria-live="polite">PNG or JPG/JPEG only. Your file stays on this device.</p>
+                <p class="tarp-selected-size">Selected size: <strong id="tarpSelectedSize">3 ft × 3 ft</strong></p>
+              </div>
+
+              <div class="tarp-step" data-tarp-step="2" hidden>
+                <h2>Review your order</h2>
+                <dl class="tarp-summary">
+                  <div><dt>Product</dt><dd>Tarpaulin printing</dd></div>
+                  <div><dt>Width</dt><dd id="summaryWidth"></dd></div>
+                  <div><dt>Height</dt><dd id="summaryHeight"></dd></div>
+                  <div><dt>Design file</dt><dd id="summaryFile"></dd></div>
+                  <div><dt>Format</dt><dd id="summaryFormat"></dd></div>
+                  <div><dt>File size</dt><dd id="summaryFileSize"></dd></div>
+                  <div><dt>Price</dt><dd>Not available yet</dd></div>
+                </dl>
+                <p class="tarp-notice">Tarpaulin pricing and online checkout are not available yet.</p>
+                <div class="tarp-actions">
+                  <button class="tarp-submit" type="button" disabled>Print Now</button>
+                  <button class="tarp-submit" type="button" disabled>Add To Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <section class="tarp-preview" id="tarpPreview" aria-labelledby="tarpPreviewTitle">
+              <h2 id="tarpPreviewTitle">Your tarp preview</h2>
+              <div class="tarp-preview-stage">
+                <div class="tarp-preview-shape" id="tarpPreviewShape" role="img" aria-label="Tarp preview, 3 ft wide by 3 ft high"></div>
+              </div>
+              <p class="tarp-preview-dimensions" id="tarpPreviewDimensions" aria-live="polite">3 ft × 3 ft</p>
+              <p class="tarp-size-status" id="tarpSizeStatus" aria-live="polite">Preview proportions are to scale.</p>
+            </section>
+          </div>
+
+          <p class="tarp-error" id="tarpError" role="alert" hidden></p>
+          <div class="tarp-navigation">
+            <button class="tarp-previous" id="tarpPrevious" type="button">All services</button>
+            <button class="tarp-next" id="tarpNext" type="button">Continue</button>
+          </div>
+        </form>
+      </section>
     </main>
   </div>
 </body>

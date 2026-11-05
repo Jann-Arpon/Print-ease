@@ -1,0 +1,302 @@
+.tarp-order {
+  width: min(100%, 900px);
+  margin: 0 auto;
+  padding: 28px 0;
+}
+
+.tarp-order--review {
+  width: min(100%, 760px);
+}
+
+.tarp-order-header {
+  margin-bottom: 28px;
+}
+
+.tarp-back-link {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.tarp-back-link:hover {
+  text-decoration: underline;
+}
+
+.tarp-step-count {
+  margin: 26px 0 8px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.tarp-order-header h1,
+.tarp-step h2 {
+  margin: 0 0 18px;
+  font-size: 30px;
+}
+
+.tarp-progress {
+  height: 4px;
+  background: #ddd;
+}
+
+.tarp-progress span {
+  display: block;
+  width: 33.333%;
+  height: 100%;
+  background: #000;
+  transition: width .2s ease;
+}
+
+.tarp-step-layout {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  align-items: start;
+  gap: 28px;
+}
+
+.tarp-order--review .tarp-step-layout {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.tarp-step-content,
+.tarp-step {
+  min-width: 0;
+}
+
+.tarp-size-inputs {
+  min-width: 0;
+  margin: 0 0 28px;
+  padding: 0;
+  border: 0;
+}
+
+.tarp-size-inputs legend {
+  margin-bottom: 14px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.tarp-size-inputs label {
+  display: block;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.tarp-size-inputs input,
+.tarp-file input {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 8px;
+  padding: 10px;
+  border: 1px solid #000;
+  background: #fff;
+}
+
+.tarp-size-limit,
+.tarp-size-status,
+.tarp-file-status,
+.tarp-notice {
+  font-size: 13px;
+}
+
+.tarp-size-limit {
+  margin: 0;
+}
+
+.tarp-preview h2,
+.tarp-inspiration h2 {
+  margin: 0 0 14px;
+  font-size: 20px;
+}
+
+.tarp-preview-stage {
+  width: 100%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #f2f2f2;
+}
+
+.tarp-preview-shape {
+  width: 50%;
+  height: 50%;
+  border: 2px dashed #000;
+  background: #fff;
+  transition: width .2s ease, height .2s ease;
+}
+
+.tarp-preview-dimensions {
+  margin: 10px 0 0;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.tarp-size-status {
+  margin: 6px 0 0;
+  text-align: center;
+}
+
+.tarp-size-status--error {
+  font-weight: bold;
+}
+
+.tarp-inspiration {
+  margin-top: 30px;
+}
+
+.tarp-inspiration-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.tarp-inspiration-item h3 {
+  margin: 8px 0 0;
+  font-size: 14px;
+}
+
+.tarp-inspiration-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #000;
+}
+
+.tarp-file {
+  display: block;
+  margin: 0 0 24px;
+  font-weight: bold;
+}
+
+.tarp-file-status {
+  margin: -14px 0 24px;
+}
+
+.tarp-selected-size {
+  padding: 12px;
+  border: 1px solid #000;
+  font-size: 14px;
+}
+
+.tarp-summary {
+  margin: 0;
+  border-top: 1px solid #000;
+}
+
+.tarp-summary div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.tarp-summary dt {
+  font-weight: bold;
+}
+
+.tarp-summary dd {
+  margin: 0;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.tarp-notice {
+  margin: 22px 0;
+}
+
+.tarp-actions,
+.tarp-navigation {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.tarp-navigation {
+  margin-top: 24px;
+}
+
+.tarp-navigation button,
+.tarp-submit {
+  min-width: 0;
+  min-height: 50px;
+  padding: 10px 18px;
+  border: 1px solid #000;
+  font-weight: bold;
+}
+
+.tarp-previous {
+  background: #fff;
+}
+
+.tarp-next {
+  color: #fff;
+  background: #000;
+}
+
+.tarp-submit {
+  width: 100%;
+  padding: 10px 12px;
+  color: #fff;
+  background: #000;
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.tarp-error {
+  padding: 10px;
+  border: 1px solid #000;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .page-tarp .services-main--simple {
+    padding: 12px;
+  }
+
+  .tarp-order {
+    width: 100%;
+    padding: 12px 0;
+  }
+
+  .tarp-order-header h1,
+  .tarp-step h2 {
+    font-size: 26px;
+  }
+
+  .tarp-step-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .tarp-preview-stage {
+    width: min(100%, 360px);
+    margin: 0 auto;
+  }
+
+  .tarp-inspiration-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .tarp-navigation,
+  .tarp-actions {
+    gap: 8px;
+  }
+
+  .tarp-navigation button {
+    width: 100%;
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .tarp-submit {
+    padding-right: 6px;
+    padding-left: 6px;
+    font-size: 13px;
+  }
+}
