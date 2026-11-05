@@ -1,0 +1,209 @@
+.mug-order {
+  width: min(100%, 760px);
+  margin: 0 auto;
+  padding: 28px 0;
+}
+
+.mug-back-link {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.mug-back-link:hover {
+  text-decoration: underline;
+}
+
+.mug-order-header {
+  margin-bottom: 28px;
+}
+
+.mug-step-count {
+  margin: 26px 0 8px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.mug-order-header h1,
+.mug-step h2 {
+  margin: 0 0 18px;
+  font-size: 30px;
+}
+
+.mug-progress {
+  height: 4px;
+  background: #ddd;
+}
+
+.mug-progress span {
+  display: block;
+  width: 50%;
+  height: 100%;
+  background: #000;
+  transition: width .2s ease;
+}
+
+.mug-step h2 {
+  margin-bottom: 18px;
+}
+
+.mug-file {
+  display: block;
+  margin: 0 0 24px;
+  font-weight: bold;
+}
+
+.mug-file input {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 8px;
+  padding: 10px;
+  border: 1px solid #000;
+  background: #fff;
+}
+
+.mug-file-status {
+  margin: -14px 0 28px;
+  font-size: 13px;
+}
+
+.mug-inspiration h2 {
+  margin-bottom: 14px;
+  font-size: 20px;
+}
+
+.mug-inspiration-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.mug-inspiration-item h3 {
+  margin: 10px 0 0;
+  font-size: 16px;
+}
+
+.mug-inspiration-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #000;
+}
+
+.mug-summary {
+  margin: 0;
+  border-top: 1px solid #000;
+}
+
+.mug-summary div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.mug-summary dt {
+  font-weight: bold;
+}
+
+.mug-summary dd {
+  margin: 0;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.mug-notice {
+  margin: 22px 0;
+  font-size: 13px;
+}
+
+.mug-actions,
+.mug-navigation {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.mug-navigation {
+  margin-top: 24px;
+}
+
+.mug-navigation button,
+.mug-submit {
+  min-width: 0;
+  min-height: 50px;
+  padding: 10px 18px;
+  border: 1px solid #000;
+  font-weight: bold;
+}
+
+.mug-previous {
+  background: #fff;
+}
+
+.mug-next {
+  color: #fff;
+  background: #000;
+}
+
+.mug-submit {
+  width: 100%;
+  padding: 10px 12px;
+  color: #fff;
+  background: #000;
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.mug-error {
+  padding: 10px;
+  border: 1px solid #000;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .mug-order {
+    width: 100%;
+    padding: 12px 0;
+  }
+
+  .mug-order-header h1,
+  .mug-step h2 {
+    font-size: 26px;
+  }
+
+  .mug-step,
+  .mug-form {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .mug-inspiration-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .mug-inspiration-item h3 {
+    font-size: 14px;
+  }
+
+  .mug-navigation,
+  .mug-actions {
+    gap: 8px;
+  }
+
+  .mug-navigation button {
+    width: 100%;
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .mug-submit {
+    padding-right: 6px;
+    padding-left: 6px;
+    font-size: 13px;
+  }
+}

@@ -3,16 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Get your artwork ready for mug printing at ALJ Print Services.">
   <title>Mug Printing | ALJ Print Services</title>
   <link rel="stylesheet" href="../styles/base.css">
+  <link rel="stylesheet" href="../styles/mug.css">
   <script src="../js/common.js" defer></script>
+  <script src="../js/mug-order.js" defer></script>
 </head>
-<body>
+<body class="page-mug">
   <div class="site-wrap">
     <main class="services-main services-main--simple">
-      <a class="back-home" href="../services.html">← ALL SERVICES</a>
-      <h1>Mug printing</h1>
-      <p>More options for mug printing will be added here.</p>
+      <section class="mug-order" aria-labelledby="mugOrderTitle">
+        <header class="mug-order-header">
+          <a class="mug-back-link" href="../services.html">← ALL SERVICES</a>
+          <p class="mug-step-count" id="mugStepCount">STEP 1 OF 2</p>
+          <h1 id="mugOrderTitle" tabindex="-1">Mug printing</h1>
+          <div class="mug-progress" aria-hidden="true"><span id="mugProgress"></span></div>
+        </header>
+
+        <form class="mug-form" id="mugOrderForm" novalidate>
+          <div class="mug-step" data-mug-step="0">
+            <label class="mug-file" for="mugFile">Upload your design
+              <input id="mugFile" name="file" type="file" accept="image/png,image/jpeg,.png,.jpg,.jpeg" required>
+            </label>
+            <p class="mug-file-status" id="mugFileStatus" aria-live="polite">PNG or JPG/JPEG only. Your file stays on this device.</p>
+
+            <section class="mug-inspiration" aria-labelledby="mugInspirationTitle">
+              <h2 id="mugInspirationTitle">Design inspiration</h2>
+              <div class="mug-inspiration-grid">
+                <article class="mug-inspiration-item">
+                  <div class="mug-inspiration-placeholder" aria-hidden="true"></div>
+                  <h3>Inspiration 01</h3>
+                </article>
+                <article class="mug-inspiration-item">
+                  <div class="mug-inspiration-placeholder" aria-hidden="true"></div>
+                  <h3>Inspiration 02</h3>
+                </article>
+              </div>
+            </section>
+          </div>
+
+          <div class="mug-step" data-mug-step="1" hidden>
+            <h2>Review your design</h2>
+            <dl class="mug-summary">
+              <div><dt>Product</dt><dd>Mug printing</dd></div>
+              <div><dt>File</dt><dd id="summaryFile"></dd></div>
+              <div><dt>Format</dt><dd id="summaryFormat"></dd></div>
+              <div><dt>File size</dt><dd id="summaryFileSize"></dd></div>
+              <div><dt>Price</dt><dd>Not available yet</dd></div>
+            </dl>
+            <p class="mug-notice">Pricing and online checkout are not available yet.</p>
+            <div class="mug-actions">
+              <button class="mug-submit" type="button" disabled>Print Now</button>
+              <button class="mug-submit" type="button" disabled>Add To Cart</button>
+            </div>
+          </div>
+
+          <p class="mug-error" id="mugError" role="alert" hidden></p>
+          <div class="mug-navigation">
+            <button class="mug-previous" id="mugPrevious" type="button">All services</button>
+            <button class="mug-next" id="mugNext" type="button">Continue</button>
+          </div>
+        </form>
+      </section>
     </main>
   </div>
 </body>
