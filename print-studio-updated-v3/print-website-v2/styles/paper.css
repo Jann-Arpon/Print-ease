@@ -99,6 +99,20 @@
   font-size: 12px;
 }
 
+.paper-size-prompt {
+  margin: 0;
+  padding: 12px;
+  font-size: 13px;
+}
+
+.paper-pricing-note {
+  margin: 0 0 24px;
+  padding: 12px;
+  border: 1px solid #000;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
 .paper-copies,
 .paper-file {
   display: block;

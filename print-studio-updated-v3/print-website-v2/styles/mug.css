@@ -131,6 +131,10 @@
   margin-top: 24px;
 }
 
+.mug-navigation--first-step {
+  grid-template-columns: 1fr;
+}
+
 .mug-navigation button,
 .mug-submit {
   min-width: 0;
@@ -179,6 +183,23 @@
   .mug-form {
     min-width: 0;
     width: 100%;
+  }
+
+  .mug-form {
+    display: grid;
+  }
+
+  .mug-step[data-mug-step="0"]:not([hidden]) {
+    display: contents;
+  }
+
+  .mug-navigation {
+    order: 1;
+    margin-top: 0;
+  }
+
+  .mug-inspiration {
+    order: 2;
   }
 
   .mug-inspiration-grid {

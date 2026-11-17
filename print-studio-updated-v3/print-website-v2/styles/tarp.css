@@ -280,6 +280,23 @@
     gap: 24px;
   }
 
+  .tarp-step-content,
+  .tarp-step[data-tarp-step="0"] {
+    display: contents;
+  }
+
+  .tarp-size-inputs {
+    order: 0;
+  }
+
+  .tarp-preview {
+    order: 1;
+  }
+
+  .tarp-inspiration {
+    order: 2;
+  }
+
   .tarp-preview-stage {
     width: min(100%, 360px);
     margin: 0 auto;

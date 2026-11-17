@@ -71,6 +71,7 @@ if (cartOrderForm) {
         });
         cartStatus.textContent = 'Added to your cart on this device.';
         window.dispatchEvent(new Event('cart:updated'));
+        window.location.href = '../services.html';
       } catch (error) {
         console.error('Could not save this item to the local cart.', error);
         cartStatus.textContent = 'Could not save this item. Check available browser storage and try again.';

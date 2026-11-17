@@ -9,11 +9,45 @@ if (paperOrder) {
   const paperFile = document.querySelector('#paperFile');
   const paperFileStatus = document.querySelector('#paperFileStatus');
   const paperPriceEstimate = document.querySelector('#paperPriceEstimate');
+  const paperSizeChoices = document.querySelector('#paperSizeChoices');
+  const paperPricingNote = document.querySelector('#paperPricingNote');
   const paperCopies = document.querySelector('#paperCopies');
   const paperBackLink = document.querySelector('.paper-back-link');
   let currentPaperStep = 0;
   let pdfPageCount = null;
   let pdfReadRequest = 0;
+  const paperCatalog = {
+    plain: {
+      name: 'Plain paper',
+      sizes: [
+        { name: 'Short', dimensions: '8.5 × 11 in' },
+        { name: 'A4', dimensions: '8.27 × 11.69 in' },
+        { name: 'Long', dimensions: '8.5 × 13 in' }
+      ]
+    },
+    photo: {
+      name: 'Photo paper',
+      rate: 40,
+      sizes: [{ name: 'A4', dimensions: '8.27 × 11.69 in' }]
+    },
+    vellum: {
+      name: 'Vellum paper',
+      rate: 40,
+      sizes: [
+        { name: 'Short', dimensions: '8.5 × 11 in' },
+        { name: 'A4', dimensions: '8.27 × 11.69 in' },
+        { name: 'Long', dimensions: '8.5 × 13 in' }
+      ]
+    },
+    c2s: {
+      name: 'C2S',
+      rate: 80,
+      sizes: [
+        { name: 'A4', dimensions: '8.27 × 11.69 in' },
+        { name: 'A3', dimensions: '11.69 × 16.5 in' }
+      ]
+    }
+  };
 
   const leavePaper = () => {
     const confirmed = window.confirm('Are you sure you want to return to the services page? Your changes will not be saved.');
@@ -35,39 +69,87 @@ if (paperOrder) {
   };
 
   const selectedValue = name => paperForm.querySelector(`[name="${name}"]:checked`)?.value || '';
+  const formatPrice = amount => `₱${amount.toFixed(2)}`;
 
-  const estimateBlackAndWhitePrice = () => {
-    if (selectedValue('printColor') !== 'Black and white' || !pdfPageCount) {
+  const getPricePerPage = () => {
+    const paperType = selectedValue('paperType');
+    if (paperType === 'plain') {
+      return selectedValue('printColor') === 'Black and white' ? 2 : 5;
+    }
+    return paperCatalog[paperType]?.rate ?? null;
+  };
+
+  const getTotalPrice = () => {
+    const pricePerPage = getPricePerPage();
+    const copies = Number(paperCopies.value);
+    if (pricePerPage === null || !pdfPageCount || !Number.isInteger(copies) || copies < 1) {
       return null;
     }
-    return pdfPageCount * Number(paperCopies.value) * 2;
+    return pdfPageCount * copies * pricePerPage;
+  };
+
+  const renderPaperSizes = paperType => {
+    paperSizeChoices.replaceChildren();
+    const catalogItem = paperCatalog[paperType];
+    if (!catalogItem) {
+      const prompt = document.createElement('p');
+      prompt.className = 'paper-size-prompt';
+      prompt.textContent = 'Choose a paper type to see its available sizes.';
+      paperSizeChoices.append(prompt);
+      return;
+    }
+
+    catalogItem.sizes.forEach(size => {
+      const label = document.createElement('label');
+      label.className = 'paper-choice';
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'paperSize';
+      input.value = `${size.name} (${size.dimensions})`;
+      input.required = true;
+      const text = document.createElement('span');
+      const name = document.createElement('strong');
+      name.textContent = size.name;
+      const dimensions = document.createElement('small');
+      dimensions.textContent = size.dimensions;
+      text.append(name, dimensions);
+      label.append(input, text);
+      paperSizeChoices.append(label);
+    });
+  };
+
+  const updatePaperPricingNote = () => {
+    const paperType = selectedValue('paperType');
+    if (!paperType || paperType === 'plain') {
+      document.querySelector('#blackAndWhitePrice').textContent = '₱2 per page';
+      document.querySelector('#colorPrice').textContent = '₱5 per page';
+      paperPricingNote.textContent = paperType
+        ? 'Plain paper: ₱2 per page in black and white or ₱5 per page in color.'
+        : '';
+      return;
+    }
+
+    const catalogItem = paperCatalog[paperType];
+    document.querySelector('#blackAndWhitePrice').textContent = `₱${catalogItem.rate} per page`;
+    document.querySelector('#colorPrice').textContent = `₱${catalogItem.rate} per page`;
+    paperPricingNote.textContent = `${catalogItem.name}: ₱${catalogItem.rate} per page, regardless of print color.`;
   };
 
   const updatePaperFileDetails = () => {
-    if (!pdfPageCount) {
+    const total = getTotalPrice();
+    if (total === null) {
       paperPriceEstimate.hidden = true;
       return;
     }
 
-    if (selectedValue('printColor') === 'Black and white') {
-      const estimate = estimateBlackAndWhitePrice();
-      paperPriceEstimate.textContent = `Estimated price: ₱${estimate.toFixed(2)} (${pdfPageCount} pages × ${paperCopies.value} ${Number(paperCopies.value) === 1 ? 'copy' : 'copies'} × ₱2)`;
-      paperPriceEstimate.hidden = false;
-      return;
-    }
-
-    if (selectedValue('printColor') === 'Color') {
-      paperPriceEstimate.textContent = 'Color price has not been confirmed yet.';
-      paperPriceEstimate.hidden = false;
-      return;
-    }
-
-    paperPriceEstimate.hidden = true;
+    const pricePerPage = getPricePerPage();
+    paperPriceEstimate.textContent = `Estimated total: ${formatPrice(total)} (${pdfPageCount} pages × ${paperCopies.value} ${Number(paperCopies.value) === 1 ? 'copy' : 'copies'} × ${formatPrice(pricePerPage)} per page)`;
+    paperPriceEstimate.hidden = false;
   };
 
   const validatePaperStep = () => {
-    if (currentPaperStep === 0 && !selectedValue('paperSize')) {
-      return 'Choose a paper size to continue.';
+    if (currentPaperStep === 0 && (!selectedValue('paperType') || !selectedValue('paperSize'))) {
+      return 'Choose a paper type and an available size to continue.';
     }
     if (currentPaperStep === 1 && (!selectedValue('printColor') || !selectedValue('printSides'))) {
       return 'Choose both print color and print sides.';
@@ -92,15 +174,31 @@ if (paperOrder) {
   };
 
   const fillPaperSummary = () => {
+    document.querySelector('#summaryType').textContent = paperCatalog[selectedValue('paperType')].name;
     document.querySelector('#summarySize').textContent = selectedValue('paperSize');
     document.querySelector('#summaryColor').textContent = selectedValue('printColor');
     document.querySelector('#summarySides').textContent = selectedValue('printSides');
     document.querySelector('#summaryCopies').textContent = paperCopies.value;
     document.querySelector('#summaryFile').textContent = paperFile.files[0].name;
     document.querySelector('#summaryPages').textContent = pdfPageCount;
-    const estimate = estimateBlackAndWhitePrice();
-    document.querySelector('#summaryPrice').textContent = estimate === null ? 'Not confirmed for color' : `₱${estimate.toFixed(2)}`;
+    document.querySelector('#summaryPrice').textContent = formatPrice(getTotalPrice());
   };
+
+  paperForm.querySelectorAll('[name="paperType"]').forEach(input => {
+    input.addEventListener('change', () => {
+      renderPaperSizes(input.value);
+      updatePaperPricingNote();
+      paperPriceEstimate.hidden = true;
+    });
+  });
+
+  paperForm.querySelectorAll('[name="printColor"]').forEach(input => {
+    input.addEventListener('change', updatePaperFileDetails);
+  });
+  paperCopies.addEventListener('input', updatePaperFileDetails);
+
+  renderPaperSizes(selectedValue('paperType'));
+  updatePaperPricingNote();
 
   paperBackLink.addEventListener('click', event => {
     event.preventDefault();
@@ -172,8 +270,4 @@ if (paperOrder) {
     }
   });
 
-  paperForm.querySelectorAll('[name="printColor"]').forEach(input => {
-    input.addEventListener('change', updatePaperFileDetails);
-  });
-  paperCopies.addEventListener('input', updatePaperFileDetails);
 }

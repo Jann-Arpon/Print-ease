@@ -5,6 +5,7 @@ if (mugFile) {
   const mugSteps = [...document.querySelectorAll('[data-mug-step]')];
   const mugPrevious = document.querySelector('#mugPrevious');
   const mugNext = document.querySelector('#mugNext');
+  const mugNavigation = document.querySelector('.mug-navigation');
   const mugError = document.querySelector('#mugError');
   const mugBackLink = document.querySelector('.mug-back-link');
   let currentMugStep = 0;
@@ -33,7 +34,9 @@ if (mugFile) {
     });
     document.querySelector('#mugStepCount').textContent = `STEP ${step + 1} OF ${mugSteps.length}`;
     document.querySelector('#mugProgress').style.width = `${((step + 1) / mugSteps.length) * 100}%`;
-    mugPrevious.textContent = step === 0 ? 'All services' : 'Back';
+    mugPrevious.hidden = step === 0;
+    mugPrevious.textContent = 'Back';
+    mugNavigation.classList.toggle('mug-navigation--first-step', step === 0);
     mugNext.hidden = step === mugSteps.length - 1;
     mugError.hidden = true;
   };
@@ -69,10 +72,6 @@ if (mugFile) {
   });
 
   mugPrevious.addEventListener('click', () => {
-    if (currentMugStep === 0) {
-      leaveMug();
-      return;
-    }
     showMugStep(currentMugStep - 1);
   });
 
@@ -99,4 +98,6 @@ if (mugFile) {
       ? `${mugFile.files[0].name} selected. Your file stays on this device.`
       : 'PNG or JPG/JPEG only. Your file stays on this device.';
   });
+
+  showMugStep(0);
 }

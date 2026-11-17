@@ -28,11 +28,18 @@
         <form class="paper-form" id="paperOrderForm" novalidate>
           <div class="paper-step" data-paper-step="0">
             <fieldset>
+              <legend>Choose a paper type</legend>
+              <div class="paper-choice-list paper-choice-list--two">
+                <label class="paper-choice"><input type="radio" name="paperType" value="plain"><span><strong>Plain paper</strong><small>₱2 black and white / ₱5 color per page</small></span></label>
+                <label class="paper-choice"><input type="radio" name="paperType" value="photo"><span><strong>Photo paper</strong><small>₱40 per page</small></span></label>
+                <label class="paper-choice"><input type="radio" name="paperType" value="vellum"><span><strong>Vellum paper</strong><small>₱40 per page</small></span></label>
+                <label class="paper-choice"><input type="radio" name="paperType" value="c2s"><span><strong>C2S</strong><small>₱80 per page</small></span></label>
+              </div>
+            </fieldset>
+            <fieldset>
               <legend>Choose a paper size</legend>
-              <div class="paper-choice-list">
-                <label class="paper-choice"><input type="radio" name="paperSize" value="A4 (210 × 297 mm)"><span><strong>A4</strong><small>210 × 297 mm</small></span></label>
-                <label class="paper-choice"><input type="radio" name="paperSize" value="Short bond (8.5 × 11 in)"><span><strong>Short bond</strong><small>8.5 × 11 in</small></span></label>
-                <label class="paper-choice"><input type="radio" name="paperSize" value="Long bond (8.5 × 13 in)"><span><strong>Long bond</strong><small>8.5 × 13 in</small></span></label>
+              <div class="paper-choice-list" id="paperSizeChoices" role="radiogroup" aria-label="Available paper sizes">
+                <p class="paper-size-prompt">Choose a paper type to see its available sizes.</p>
               </div>
             </fieldset>
           </div>
@@ -41,8 +48,8 @@
             <fieldset>
               <legend>Choose print color</legend>
               <div class="paper-choice-list paper-choice-list--two">
-                <label class="paper-choice"><input type="radio" name="printColor" value="Black and white"><span><strong>Black and white</strong><small>₱2 per page on normal paper</small></span></label>
-                <label class="paper-choice"><input type="radio" name="printColor" value="Color"><span><strong>Color</strong><small>Price not confirmed</small></span></label>
+                <label class="paper-choice"><input type="radio" name="printColor" value="Black and white"><span><strong>Black and white</strong><small id="blackAndWhitePrice">₱2 per page</small></span></label>
+                <label class="paper-choice"><input type="radio" name="printColor" value="Color"><span><strong>Color</strong><small id="colorPrice">₱5 per page</small></span></label>
               </div>
             </fieldset>
             <fieldset>
@@ -52,6 +59,7 @@
                 <label class="paper-choice"><input type="radio" name="printSides" value="Double-sided"><span><strong>Double-sided</strong></span></label>
               </div>
             </fieldset>
+            <p class="paper-pricing-note" id="paperPricingNote" aria-live="polite"></p>
           </div>
 
           <div class="paper-step" data-paper-step="2" hidden>
@@ -68,6 +76,7 @@
           <div class="paper-step" data-paper-step="3" hidden>
             <h2>Review your choices</h2>
             <dl class="paper-summary">
+              <div><dt>Paper type</dt><dd id="summaryType"></dd></div>
               <div><dt>Size</dt><dd id="summarySize"></dd></div>
               <div><dt>Color</dt><dd id="summaryColor"></dd></div>
               <div><dt>Sides</dt><dd id="summarySides"></dd></div>
@@ -76,7 +85,7 @@
               <div><dt>PDF pages</dt><dd id="summaryPages"></dd></div>
               <div><dt>Estimated price</dt><dd id="summaryPrice"></dd></div>
             </dl>
-            <p class="paper-notice">Black-and-white estimate uses ₱2 per page. Color pricing and online print requests are not available yet.</p>
+            <p class="paper-notice">Estimated pricing is based on the selected paper type, PDF page count, and copies. Online order submission is not available yet.</p>
             <div class="paper-actions">
               <button class="paper-submit" type="button" disabled>Print Now</button>
               <button class="paper-submit" type="button" data-add-to-cart disabled>Add To Cart</button>

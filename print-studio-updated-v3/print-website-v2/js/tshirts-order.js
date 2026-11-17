@@ -7,11 +7,13 @@ if (tshirtOrder) {
   const tshirtFileStatus = document.querySelector('#tshirtFileStatus');
   const tshirtPrevious = document.querySelector('#tshirtPrevious');
   const tshirtNext = document.querySelector('#tshirtNext');
+  const tshirtNavigation = document.querySelector('.tshirt-navigation');
   const tshirtError = document.querySelector('#tshirtError');
   const tshirtBackLink = document.querySelector('.tshirt-back-link');
   const acceptedTypes = ['image/png', 'image/jpeg'];
   const acceptedExtensions = ['.png', '.jpg', '.jpeg'];
   let currentTshirtStep = 0;
+  const tshirtPrice = 400;
 
   const selectedValue = name => tshirtForm.querySelector(`[name="${name}"]:checked`)?.value || '';
 
@@ -31,8 +33,8 @@ if (tshirtOrder) {
   };
 
   const validateTshirtStep = () => {
-    if (currentTshirtStep === 0 && !selectedValue('shirtSize')) {
-      return 'Choose a T-shirt size to continue.';
+    if (currentTshirtStep === 0 && (!selectedValue('shirtSize') || !selectedValue('shirtType'))) {
+      return 'Choose both a T-shirt size and type to continue.';
     }
     if (currentTshirtStep === 1 && !selectedValue('shirtColor')) {
       return 'Choose a base color to continue.';
@@ -50,7 +52,9 @@ if (tshirtOrder) {
     });
     document.querySelector('#tshirtStepCount').textContent = `STEP ${step + 1} OF ${tshirtSteps.length}`;
     document.querySelector('#tshirtProgress').style.width = `${((step + 1) / tshirtSteps.length) * 100}%`;
-    tshirtPrevious.textContent = step === 0 ? 'All services' : 'Back';
+    tshirtPrevious.hidden = step === 0;
+    tshirtPrevious.textContent = 'Back';
+    tshirtNavigation.classList.toggle('tshirt-navigation--first-step', step === 0);
     tshirtNext.hidden = step === tshirtSteps.length - 1;
     tshirtError.hidden = true;
   };
@@ -76,10 +80,12 @@ if (tshirtOrder) {
     const file = tshirtFile.files[0];
     const extension = file.name.split('.').pop().toLowerCase();
     document.querySelector('#summarySize').textContent = selectedValue('shirtSize');
+    document.querySelector('#summaryType').textContent = selectedValue('shirtType');
     document.querySelector('#summaryColor').textContent = selectedValue('shirtColor');
     document.querySelector('#summaryFile').textContent = file.name;
     document.querySelector('#summaryFormat').textContent = extension.toUpperCase();
     document.querySelector('#summaryFileSize').textContent = formatFileSize(file.size);
+    document.querySelector('#summaryPrice').textContent = `₱${tshirtPrice.toFixed(2)}`;
   };
 
   tshirtBackLink.addEventListener('click', event => {
@@ -88,10 +94,6 @@ if (tshirtOrder) {
   });
 
   tshirtPrevious.addEventListener('click', () => {
-    if (currentTshirtStep === 0) {
-      leaveTshirt();
-      return;
-    }
     showTshirtStep(currentTshirtStep - 1);
   });
 
@@ -120,4 +122,6 @@ if (tshirtOrder) {
       ? `${tshirtFile.files[0].name} selected. Your file stays on this device.`
       : 'PNG or JPG/JPEG only. Your file stays on this device.';
   });
+
+  showTshirtStep(0);
 }

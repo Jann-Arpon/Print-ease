@@ -183,6 +183,10 @@
   margin-top: 24px;
 }
 
+.tshirt-navigation--first-step {
+  grid-template-columns: 1fr;
+}
+
 .tshirt-navigation button,
 .tshirt-submit {
   min-width: 0;
@@ -230,6 +234,23 @@
   .tshirt-step {
     min-width: 0;
     width: 100%;
+  }
+
+  .tshirt-form {
+    display: grid;
+  }
+
+  .tshirt-step[data-tshirt-step="0"]:not([hidden]) {
+    display: contents;
+  }
+
+  .tshirt-navigation {
+    order: 1;
+    margin-top: 0;
+  }
+
+  .tshirt-inspiration {
+    order: 2;
   }
 
   .tshirt-choice {
