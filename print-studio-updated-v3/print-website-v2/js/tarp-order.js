@@ -8,6 +8,7 @@ if (tarpOrder) {
   const tarpPreview = document.querySelector('#tarpPreview');
   const tarpPreviewShape = document.querySelector('#tarpPreviewShape');
   const tarpPreviewDimensions = document.querySelector('#tarpPreviewDimensions');
+  const tarpPreviewPrice = document.querySelector('#tarpPreviewPrice');
   const tarpSizeStatus = document.querySelector('#tarpSizeStatus');
   const tarpStepCount = document.querySelector('#tarpStepCount');
   const tarpPrevious = document.querySelector('#tarpPrevious');
@@ -18,8 +19,14 @@ if (tarpOrder) {
   const acceptedTypes = ['image/png', 'image/jpeg'];
   const acceptedExtensions = ['.png', '.jpg', '.jpeg'];
   let currentTarpStep = 0;
+  const pricePerSquareFoot = 15;
 
   const formatDimension = value => Number(value.toFixed(2)).toString();
+  const formatPrice = amount => new Intl.NumberFormat('en-PH', {
+    style: 'currency',
+    currency: 'PHP',
+    minimumFractionDigits: 2
+  }).format(amount);
 
   const getTarpDimensions = () => ({
     width: tarpWidth.valueAsNumber,
@@ -47,6 +54,7 @@ if (tarpOrder) {
 
     if (!isValid) {
       tarpPreviewShape.hidden = true;
+      tarpPreviewPrice.hidden = true;
       tarpPreviewDimensions.textContent = 'Enter a valid size';
       tarpSizeStatus.textContent = 'Each side must be at least 0.1 ft and no more than 6 ft.';
       tarpSizeStatus.classList.add('tarp-size-status--error');
@@ -61,7 +69,9 @@ if (tarpOrder) {
       `Tarp preview, ${formatDimension(width)} ft wide by ${formatDimension(height)} ft high`
     );
     tarpPreviewShape.hidden = false;
+    tarpPreviewPrice.hidden = false;
     tarpPreviewDimensions.textContent = `${formatDimension(width)} ft × ${formatDimension(height)} ft`;
+    tarpPreviewPrice.textContent = `Estimated price: ${formatPrice(width * height * pricePerSquareFoot)}`;
     tarpSizeStatus.textContent = 'Preview proportions are to scale.';
     tarpSizeStatus.classList.remove('tarp-size-status--error');
     document.querySelector('#tarpSelectedSize').textContent = tarpPreviewDimensions.textContent;
@@ -101,6 +111,7 @@ if (tarpOrder) {
     document.querySelector('#summaryFile').textContent = file.name;
     document.querySelector('#summaryFormat').textContent = extension.toUpperCase();
     document.querySelector('#summaryFileSize').textContent = formatFileSize(file.size);
+    document.querySelector('#summaryPrice').textContent = formatPrice(width * height * pricePerSquareFoot);
   };
 
   const showTarpStep = step => {

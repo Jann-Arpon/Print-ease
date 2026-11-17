@@ -8,12 +8,17 @@
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/services.css">
   <script src="js/common.js" defer></script>
+  <script src="js/cart-storage.js" defer></script>
+  <script src="js/cart-ui.js" defer></script>
   <script src="js/services.js" defer></script>
 </head>
 <body class="page-services">
   <div class="site-wrap site-wrap--services-simple">
     <main class="services-main services-main--simple">
-      <a class="back-home back-home--top" href="index.html">← <span>BACK TO HOME</span></a>
+      <div class="cart-page-actions">
+        <a class="back-home back-home--top" href="index.html">← <span>BACK TO HOME</span></a>
+        <a class="cart-link" href="cart.html"><span class="cart-icon" aria-hidden="true">🛒</span> View cart (<span data-cart-count>0</span>)</a>
+      </div>
 
       <label class="service-search-label" for="serviceSearch">Search services</label>
       <input class="service-search" id="serviceSearch" type="search" placeholder="Search paper, mugs, shirts..." autocomplete="off">

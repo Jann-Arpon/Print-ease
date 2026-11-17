@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/home.css">
   <script src="js/common.js" defer></script>
+  <script src="js/cart-storage.js" defer></script>
+  <script src="js/cart-ui.js" defer></script>
 </head>
 <body class="page-home">
   <div class="site-wrap site-wrap--home-simple">
@@ -16,7 +18,10 @@
         <a class="brand-lockup" href="index.html">ALJ PRINT SERVICES</a>
         <a class="contact-link" href="contact.html">Contact Us</a>
       </div>
-      <a class="staff-login-link" href="login.html">Staff login</a>
+      <nav class="home-header-actions" aria-label="Quick links">
+        <a class="cart-link" href="cart.html"><span class="cart-icon" aria-hidden="true">🛒</span> View cart (<span data-cart-count>0</span>)</a>
+        <a class="staff-login-link" href="login.html">Staff login</a>
+      </nav>
     </header>
 
     <main class="home-main home-main--full">

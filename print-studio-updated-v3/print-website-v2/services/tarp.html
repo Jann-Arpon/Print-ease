@@ -9,7 +9,8 @@
   <link rel="stylesheet" href="../styles/tarp.css">
   <script src="../js/common.js" defer></script>
   <script src="../js/guest-session.js" defer></script>
-  <script src="../js/cloudinary-upload.js" defer></script>
+  <script src="../js/cart-storage.js" defer></script>
+  <script src="../js/cart-order.js" defer></script>
   <script src="../js/tarp-order.js" defer></script>
 </head>
 <body class="page-services page-tarp">
@@ -70,12 +71,12 @@
                   <div><dt>Design file</dt><dd id="summaryFile"></dd></div>
                   <div><dt>Format</dt><dd id="summaryFormat"></dd></div>
                   <div><dt>File size</dt><dd id="summaryFileSize"></dd></div>
-                  <div><dt>Price</dt><dd>Not available yet</dd></div>
+                  <div><dt>Estimated price</dt><dd id="summaryPrice"></dd></div>
                 </dl>
-                <p class="tarp-notice">Tarpaulin pricing and online checkout are not available yet.</p>
+                <p class="tarp-notice">Estimated at ₱15 per square foot. Online order submission is not available yet.</p>
                 <div class="tarp-actions">
                   <button class="tarp-submit" type="button" disabled>Print Now</button>
-                  <button class="tarp-submit" type="button" disabled>Add To Cart</button>
+                  <button class="tarp-submit" type="button" data-add-to-cart disabled>Add To Cart</button>
                 </div>
               </div>
             </div>
@@ -86,6 +87,7 @@
                 <div class="tarp-preview-shape" id="tarpPreviewShape" role="img" aria-label="Tarp preview, 3 ft wide by 3 ft high"></div>
               </div>
               <p class="tarp-preview-dimensions" id="tarpPreviewDimensions" aria-live="polite">3 ft × 3 ft</p>
+              <p class="tarp-preview-price" id="tarpPreviewPrice" aria-live="polite">Estimated price: ₱135.00</p>
               <p class="tarp-size-status" id="tarpSizeStatus" aria-live="polite">Preview proportions are to scale.</p>
             </section>
           </div>

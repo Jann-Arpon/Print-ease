@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Review print designs saved in your local cart.">
+  <title>Your Cart | ALJ Print Services</title>
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/cart.css">
+  <script src="js/common.js" defer></script>
+  <script src="js/cart-storage.js" defer></script>
+  <script src="js/cart-ui.js" defer></script>
+</head>
+<body>
+  <div class="site-wrap">
+    <header class="site-header">
+      <a class="brand-lockup" href="index.html">ALJ PRINT SERVICES</a>
+      <a class="cart-link" href="cart.html" aria-current="page"><span class="cart-icon" aria-hidden="true">🛒</span> View cart (<span data-cart-count>0</span>)</a>
+    </header>
+
+    <main class="cart-main">
+      <a class="back-home" href="services.html">← Back to services</a>
+      <h1>Your cart</h1>
+      <p class="cart-storage-note">Cart items and design files are stored only in this browser on this device. This is not an order or checkout.</p>
+      <p class="cart-status" data-cart-status role="status" aria-live="polite">Loading your cart...</p>
+      <div class="cart-items" data-cart-items></div>
+    </main>
+
+    <footer class="site-footer">
+      <a href="services.html" class="footer-back-link">← ALL SERVICES</a>
+      <span>© <span data-year></span> ALJ PRINT SERVICES</span>
+    </footer>
+  </div>
+</body>
+</html>
