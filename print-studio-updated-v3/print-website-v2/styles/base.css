@@ -125,6 +125,32 @@ button:focus-visible {
   font-size: 12px;
 }
 
+.cloudinary-upload {
+  margin: 20px 0;
+  padding: 14px;
+  border: 1px solid #777;
+}
+
+.cloudinary-upload p {
+  margin: 0 0 12px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.cloudinary-upload .cloudinary-upload-status {
+  margin: 12px 0 0;
+  overflow-wrap: anywhere;
+}
+
+.cloudinary-upload-button {
+  padding: 10px 14px;
+  border: 1px solid #000;
+}
+
+.cloudinary-upload-button:disabled {
+  cursor: wait;
+}
+
 .back-home {
   margin-bottom: 16px;
   text-decoration: none;
