@@ -56,6 +56,28 @@
   font-weight: bold;
 }
 
+.mug-product-details {
+  margin: 0 0 24px;
+  border-top: 1px solid #000;
+}
+
+.mug-product-details div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.mug-product-details dt {
+  font-weight: bold;
+}
+
+.mug-product-details dd {
+  margin: 0;
+  text-align: right;
+}
+
 .mug-file input {
   width: 100%;
   min-height: 48px;
@@ -196,6 +218,7 @@
   .mug-navigation {
     order: 1;
     margin-top: 0;
+    margin-bottom: 24px;
   }
 
   .mug-inspiration {
