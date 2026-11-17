@@ -1,4 +1,4 @@
 # Print-ease  
 
-#MEMBERS#
-##Arpon | Masillones | Salarza##
+MEMBERS
+Arpon | Masillones | Salarza
