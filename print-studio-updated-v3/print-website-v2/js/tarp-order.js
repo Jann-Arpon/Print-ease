@@ -3,6 +3,7 @@ const tarpOrder = document.querySelector('#tarpOrder');
 if (tarpOrder) {
   const tarpWidth = document.querySelector('#tarpWidth');
   const tarpHeight = document.querySelector('#tarpHeight');
+  const tarpQuantity = document.querySelector('#tarpQuantity');
   const tarpFile = document.querySelector('#tarpFile');
   const tarpFileStatus = document.querySelector('#tarpFileStatus');
   const tarpPreview = document.querySelector('#tarpPreview');
@@ -33,6 +34,8 @@ if (tarpOrder) {
     height: tarpHeight.valueAsNumber
   });
 
+  const getTarpQuantity = () => tarpQuantity.valueAsNumber;
+
   const hasValidTarpDimensions = () => {
     const { width, height } = getTarpDimensions();
     return Number.isFinite(width)
@@ -42,6 +45,10 @@ if (tarpOrder) {
       && width <= 6
       && height <= 6;
   };
+
+  const hasValidTarpQuantity = () => Number.isInteger(getTarpQuantity())
+    && getTarpQuantity() >= 1
+    && getTarpQuantity() <= 100;
 
   const updateTarpPreview = () => {
     const { width, height } = getTarpDimensions();
@@ -71,7 +78,9 @@ if (tarpOrder) {
     tarpPreviewShape.hidden = false;
     tarpPreviewPrice.hidden = false;
     tarpPreviewDimensions.textContent = `${formatDimension(width)} ft × ${formatDimension(height)} ft`;
-    tarpPreviewPrice.textContent = `Estimated price: ${formatPrice(width * height * pricePerSquareFoot)}`;
+    // Quantity-aware preview
+    const quantity = hasValidTarpQuantity() ? getTarpQuantity() : 1;
+    tarpPreviewPrice.textContent = `Estimated price: ${formatPrice(width * height * pricePerSquareFoot * quantity)} (${quantity} ${quantity === 1 ? 'tarp' : 'tarps'})`;
     tarpSizeStatus.textContent = 'Preview proportions are to scale.';
     tarpSizeStatus.classList.remove('tarp-size-status--error');
     document.querySelector('#tarpSelectedSize').textContent = tarpPreviewDimensions.textContent;
@@ -111,7 +120,11 @@ if (tarpOrder) {
     document.querySelector('#summaryFile').textContent = file.name;
     document.querySelector('#summaryFormat').textContent = extension.toUpperCase();
     document.querySelector('#summaryFileSize').textContent = formatFileSize(file.size);
-    document.querySelector('#summaryPrice').textContent = formatPrice(width * height * pricePerSquareFoot);
+    const quantity = getTarpQuantity();
+    const comments = document.querySelector('#tarpComments').value.trim();
+    document.querySelector('#summaryQuantity').textContent = String(quantity);
+    document.querySelector('#summaryComments').textContent = comments || 'No additional instructions';
+    document.querySelector('#summaryPrice').textContent = formatPrice(width * height * pricePerSquareFoot * quantity);
   };
 
   const showTarpStep = step => {
@@ -149,8 +162,8 @@ if (tarpOrder) {
   });
 
   tarpNext.addEventListener('click', () => {
-    if (currentTarpStep === 0 && !hasValidTarpDimensions()) {
-      tarpError.textContent = 'Enter a width and height from 0.1 ft to 6 ft.';
+    if (currentTarpStep === 0 && (!hasValidTarpDimensions() || !hasValidTarpQuantity())) {
+      tarpError.textContent = 'Enter a valid width and height from 0.1 ft to 6 ft, and a whole-number quantity from 1 to 100.';
       tarpError.hidden = false;
       return;
     }
@@ -183,5 +196,6 @@ if (tarpOrder) {
 
   tarpWidth.addEventListener('input', updateTarpPreview);
   tarpHeight.addEventListener('input', updateTarpPreview);
+  tarpQuantity.addEventListener('input', updateTarpPreview);
   updateTarpPreview();
 }

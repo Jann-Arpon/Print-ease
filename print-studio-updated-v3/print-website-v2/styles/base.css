@@ -192,6 +192,38 @@ button[data-add-to-cart]:disabled {
   text-decoration: none;
 }
 
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.print-comments {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin: 0 0 24px;
+  font-weight: bold;
+}
+
+.print-comments textarea {
+  width: 100%;
+  min-height: 96px;
+  margin-top: 8px;
+  padding: 12px;
+  border: 1px solid #000;
+  border-radius: 0;
+  background: #fff;
+  resize: vertical;
+}
+
+.print-comments small {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: normal;
+}
+
 @media (max-width: 600px) {
   .site-header,
   .site-footer {
@@ -214,5 +246,14 @@ button[data-add-to-cart]:disabled {
 
   .services-main--simple {
     padding: 16px 14px;
+  }
+
+  .print-comments {
+    width: 100%;
+  }
+
+  .print-comments textarea {
+    width: 100%;
+    min-height: 110px;
   }
 }

@@ -77,7 +77,16 @@ if (stickerOrder) {
     document.querySelector('#summaryFile').textContent = file.name;
     document.querySelector('#summaryFormat').textContent = extension.toUpperCase();
     document.querySelector('#summaryFileSize').textContent = formatFileSize(file.size);
+    document.querySelector('#summaryComments').textContent = document.querySelector('#stickerComments').value.trim() || 'No additional instructions';
   };
+
+  // Sticker comments summary
+  const stickerComments = document.querySelector('#stickerComments');
+  const summaryComments = document.querySelector('#summaryComments');
+
+  stickerComments.addEventListener('input', () => {
+    summaryComments.textContent = stickerComments.value.trim() || 'No additional instructions';
+  });
 
   stickerBackLink.addEventListener('click', event => {
     event.preventDefault();
@@ -116,5 +125,13 @@ if (stickerOrder) {
     stickerFileStatus.textContent = stickerFile.files.length
       ? `${stickerFile.files[0].name} selected. Your file stays on this device.`
       : 'PDF, PNG, or JPG/JPEG. For best results, prepare your artwork to fit an A4 page. Your file stays on this device.';
+  });
+
+  // Sticker review comments
+  const reviewComments = document.querySelector('#reviewComments');
+  const summaryReviewComments = document.querySelector('#summaryReviewComments');
+
+  reviewComments.addEventListener('input', () => {
+    summaryReviewComments.textContent = reviewComments.value;
   });
 }

@@ -64,7 +64,10 @@ if (mugFile) {
     document.querySelector('#summaryFile').textContent = file.name;
     document.querySelector('#summaryFormat').textContent = extension.toUpperCase();
     document.querySelector('#summaryFileSize').textContent = formatFileSize(file.size);
+    document.querySelector('#summaryComments').textContent = document.querySelector('#mugComments').value.trim() || 'No additional instructions';
   };
+
+  // Mug comments added
 
   mugBackLink.addEventListener('click', event => {
     event.preventDefault();

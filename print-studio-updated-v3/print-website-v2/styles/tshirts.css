@@ -65,7 +65,7 @@
 }
 
 .tshirt-choice-list--two {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
 }
 
 .tshirt-choice {
@@ -219,6 +219,25 @@
   border: 1px solid #000;
   font-size: 14px;
 }
+
+.tshirt-color-choice {
+  min-height: 68px;
+}
+
+.tshirt-color-swatch {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border: 2px solid #777;
+  border-radius: 50%;
+}
+
+.tshirt-color-swatch--white { background: #fff; }
+.tshirt-color-swatch--black { background: #000; }
+.tshirt-color-swatch--maroon { background: #800000; }
+.tshirt-color-swatch--blue { background: #1e5aa8; }
+.tshirt-color-swatch--yellow { background: #ffd400; }
+.tshirt-color-swatch--green { background: #228b22; }
 
 @media (max-width: 600px) {
   .page-tshirts .services-main--simple {
