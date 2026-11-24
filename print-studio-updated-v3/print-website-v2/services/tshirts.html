@@ -60,8 +60,12 @@
             <fieldset>
               <legend>Choose a base color</legend>
               <div class="tshirt-choice-list tshirt-choice-list--two">
-                <label class="tshirt-choice"><input type="radio" name="shirtColor" value="White"><span><strong>White</strong></span></label>
-                <label class="tshirt-choice"><input type="radio" name="shirtColor" value="Black"><span><strong>Black</strong></span></label>
+                <label class="tshirt-choice tshirt-color-choice"><input type="radio" name="shirtColor" value="White"><span class="tshirt-color-swatch tshirt-color-swatch--white" aria-hidden="true"></span><span><strong>White</strong></span></label>
+                <label class="tshirt-choice tshirt-color-choice"><input type="radio" name="shirtColor" value="Black"><span class="tshirt-color-swatch tshirt-color-swatch--black" aria-hidden="true"></span><span><strong>Black</strong></span></label>
+                <label class="tshirt-choice tshirt-color-choice"><input type="radio" name="shirtColor" value="Maroon"><span class="tshirt-color-swatch tshirt-color-swatch--maroon" aria-hidden="true"></span><span><strong>Maroon</strong></span></label>
+                <label class="tshirt-choice tshirt-color-choice"><input type="radio" name="shirtColor" value="Blue"><span class="tshirt-color-swatch tshirt-color-swatch--blue" aria-hidden="true"></span><span><strong>Blue</strong></span></label>
+                <label class="tshirt-choice tshirt-color-choice"><input type="radio" name="shirtColor" value="Yellow"><span class="tshirt-color-swatch tshirt-color-swatch--yellow" aria-hidden="true"></span><span><strong>Yellow</strong></span></label>
+                <label class="tshirt-choice tshirt-color-choice"><input type="radio" name="shirtColor" value="Green"><span class="tshirt-color-swatch tshirt-color-swatch--green" aria-hidden="true"></span><span><strong>Green</strong></span></label>
               </div>
             </fieldset>
           </div>
@@ -71,6 +75,10 @@
               <input id="tshirtFile" name="file" type="file" accept="image/png,image/jpeg,.png,.jpg,.jpeg" required>
             </label>
             <p class="tshirt-file-status" id="tshirtFileStatus" aria-live="polite">PNG or JPG/JPEG only. Your file stays on this device.</p>
+            <label class="print-comments" for="tshirtComments">Comments / additional instructions
+              <textarea id="tshirtComments" name="comments" rows="4" placeholder="Optional instructions for your print job"></textarea>
+              <small>Optional</small>
+            </label>
           </div>
 
           <div class="tshirt-step" data-tshirt-step="3" hidden>
@@ -82,6 +90,7 @@
               <div><dt>Design file</dt><dd id="summaryFile"></dd></div>
               <div><dt>Format</dt><dd id="summaryFormat"></dd></div>
               <div><dt>File size</dt><dd id="summaryFileSize"></dd></div>
+              <div><dt>Comments</dt><dd id="summaryComments">No additional instructions</dd></div>
               <div><dt>Price</dt><dd id="summaryPrice"></dd></div>
             </dl>
             <p class="tshirt-notice">Cotton dry and active dry T-shirts are ₱400 each. Online order submission is not available yet.</p>

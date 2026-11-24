@@ -86,6 +86,7 @@ if (tshirtOrder) {
     document.querySelector('#summaryFormat').textContent = extension.toUpperCase();
     document.querySelector('#summaryFileSize').textContent = formatFileSize(file.size);
     document.querySelector('#summaryPrice').textContent = `₱${tshirtPrice.toFixed(2)}`;
+    document.querySelector('#summaryComments').textContent = document.querySelector('#tshirtComments').value.trim() || 'No additional instructions';
   };
 
   tshirtBackLink.addEventListener('click', event => {

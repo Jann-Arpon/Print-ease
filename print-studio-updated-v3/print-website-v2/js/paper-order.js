@@ -181,7 +181,9 @@ if (paperOrder) {
     document.querySelector('#summaryCopies').textContent = paperCopies.value;
     document.querySelector('#summaryFile').textContent = paperFile.files[0].name;
     document.querySelector('#summaryPages').textContent = pdfPageCount;
+    document.querySelector('#summaryComments').textContent = document.querySelector('#paperComments').value.trim() || 'No additional instructions';
     document.querySelector('#summaryPrice').textContent = formatPrice(getTotalPrice());
+    // Paper comments fix
   };
 
   paperForm.querySelectorAll('[name="paperType"]').forEach(input => {

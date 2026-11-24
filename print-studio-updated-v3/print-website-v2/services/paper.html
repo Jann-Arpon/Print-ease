@@ -70,6 +70,10 @@
               <input id="paperFile" name="file" type="file" accept="application/pdf,.pdf" required>
             </label>
             <p class="paper-file-status" id="paperFileStatus" aria-live="polite">PDF files only. Page count is read in your browser.</p>
+            <label class="print-comments" for="paperComments">Comments / additional instructions
+              <textarea id="paperComments" name="comments" rows="4" placeholder="Optional instructions for your print job"></textarea>
+              <small>Optional</small>
+            </label>
             <p class="paper-price-estimate" id="paperPriceEstimate" aria-live="polite" hidden></p>
           </div>
 
@@ -83,6 +87,7 @@
               <div><dt>Copies</dt><dd id="summaryCopies"></dd></div>
               <div><dt>File</dt><dd id="summaryFile"></dd></div>
               <div><dt>PDF pages</dt><dd id="summaryPages"></dd></div>
+              <div><dt>Comments</dt><dd id="summaryComments">No additional instructions</dd></div>
               <div><dt>Estimated price</dt><dd id="summaryPrice"></dd></div>
             </dl>
             <p class="paper-notice">Estimated pricing is based on the selected paper type, PDF page count, and copies. Online order submission is not available yet.</p>
